@@ -42,7 +42,74 @@
 
 
 
-8.Ini adalah hasil setalah kita memilih folder Ubuntu Server untuk di install di dalam Virtual Box
+8.Ini adalah hasil setalah kita memilih folder Ubuntu Server untuk di install di dalam Virtual Box, 
 
 ![8 HasilPilih folder](https://user-images.githubusercontent.com/62433171/148354456-b055d11d-4135-43fa-bf80-87606c39015f.PNG)
+
+
+
+9.Lalu kita pilih hasil yang tadi lalu kita klik Show untuk kita install.
+
+![9 1 jalankan show](https://user-images.githubusercontent.com/62433171/148358420-96c189a4-0eca-481c-8422-94f85affa612.PNG)
+
+
+
+10.Memilih Virtual Disk
+
+![9 Memilih Folder yang kita masukkan](https://user-images.githubusercontent.com/62433171/148358611-a697875c-4f9c-448a-932f-09e8dd6316b0.PNG)
+
+
+
+11.Setelah kita mengklik Show lalu akan terjadi penginstallah di dalam sistem.
+
+![10 hsil wait](https://user-images.githubusercontent.com/62433171/148358833-ea9d3360-202f-4575-9e40-e38e8cca24f2.PNG)
+
+
+
+12.Proses penginstallan pertama selesai lalu memilih bahasa untuk sistem.
+
+![11 Memilih bahasa](https://user-images.githubusercontent.com/62433171/148359053-10860161-90e9-48c2-b79d-b9fa27cb9772.PNG)
+
+
+
+13.Dalam proses ini kita memilih apakah kita akan melakukan update versi terbaru atau tidak.
+
+![12 Update Version](https://user-images.githubusercontent.com/62433171/148359452-d0dd5ea4-df96-4297-9397-eb234e82f66d.PNG)
+
+
+
+14.Memilih bahasa layout keyboard.
+
+![13 Memilah bahasa layout](https://user-images.githubusercontent.com/62433171/148359652-1d551786-8ed6-4e64-84a2-558d450a6baf.PNG)
+
+
+
+15.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
