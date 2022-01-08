@@ -143,7 +143,7 @@
 
 
 
-25.Setlah Login sukses, maka akan muncul notif seperti ini.
+25.Setelah Login sukses, maka akan muncul notif seperti ini.
 
 ![24  Login Success](https://user-images.githubusercontent.com/62433171/148634601-a0865216-b6fb-481c-bdb6-cdf6ae4181d4.PNG)
 
