@@ -84,7 +84,56 @@
 
 
 
-15.
+15.Memilih Tipe Network Connection.
+
+![14 Network Connection](https://user-images.githubusercontent.com/62433171/148552322-1e7b603c-f2ce-421a-bc7c-09575ec2089b.PNG)
+
+
+
+16.Konfigurasi proxy.
+
+![15 Konfigurasi Proxy](https://user-images.githubusercontent.com/62433171/148633851-ba94c090-26f5-49d2-8e9c-54b27153d659.PNG)
+
+
+
+17.Konfigurasi Mirror adress.
+
+![16 Konfigurasi Mirror adress](https://user-images.githubusercontent.com/62433171/148633892-a8112156-463c-4b40-a75d-c39212db4180.PNG)
+
+
+
+18.Konfigurasi Guide Storage.
+
+![17 guide Storage](https://user-images.githubusercontent.com/62433171/148634009-d17670e5-a441-472d-9c57-9f519c10f644.PNG)
+
+
+
+19.Konfigurasi Storage.
+
+![18 konfigurasi storage](https://user-images.githubusercontent.com/62433171/148634017-2a890a9e-5dcf-4872-9a3b-8dd50e29d36a.PNG)
+
+
+
+20.Profil Setup
+
+![19 Profil Setup](https://user-images.githubusercontent.com/62433171/148634053-03a8079b-f9ac-4fc0-8232-e2b35798fb3b.PNG)
+
+
+21.Sistem Melakukan Penginstallan.
+
+![20 Install System](https://user-images.githubusercontent.com/62433171/148634064-c831271e-84ef-4fbf-be7d-d7bcf31b3b23.PNG)
+
+
+
+22.Sistem Melakukan reboot
+
+![21 Reboot](https://user-images.githubusercontent.com/62433171/148634124-7fab1f06-f675-49f0-bb84-83b48bf1af53.PNG)
+
+
+
+
+
+
 
 
 
