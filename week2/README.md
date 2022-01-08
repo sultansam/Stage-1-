@@ -131,34 +131,20 @@
 
 
 
+23.Menunggu reboot, dan jika muncul seperti ini tekan Enter dan tunggu lagi.
+
+![22 enter](https://user-images.githubusercontent.com/62433171/148634537-209ef271-73c0-40f4-ad5b-ff975bf6b608.PNG)
 
 
 
+24.Setelah Proses Reboot akan langsung ke tahap Login.
+
+![23 Login server](https://user-images.githubusercontent.com/62433171/148634579-1abe0f62-8c76-4a69-979e-16d08434c29b.PNG)
 
 
 
+25.Setlah Login sukses, maka akan muncul notif seperti ini.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![24  Login Success](https://user-images.githubusercontent.com/62433171/148634601-a0865216-b6fb-481c-bdb6-cdf6ae4181d4.PNG)
 
 
