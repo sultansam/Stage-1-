@@ -1,4 +1,4 @@
-Text Nano[nano]
+[Text Nano](nano)
 
 1. Cara membuat file Nano
 
