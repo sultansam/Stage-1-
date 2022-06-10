@@ -16,9 +16,10 @@ Membuat reverse proxy pada server Nginx
 <img width="610" alt="Screen Shot 2022-06-10 at 08 06 35" src="https://user-images.githubusercontent.com/62433171/172969969-e5560e9e-c31b-401c-a98b-a2eac78a5d3f.png">
 
 Membuat User baru 
+
 <img width="384" alt="Screen Shot 2022-06-10 at 08 13 36" src="https://user-images.githubusercontent.com/62433171/172970601-8144bdd7-eb5a-4630-ba8e-b3b46a54588c.png">
 
-<img width="502" alt="Screen Shot 2022-06-10 at 08 14 05" src="https://user-images.githubusercontent.com/62433171/172970650-6e3bedef-16d2-4b98-ada5-3d24f9f98593.png">
+<img width="493" alt="Screen Shot 2022-06-10 at 08 36 07" src="https://user-images.githubusercontent.com/62433171/172972707-e589022a-34ac-421e-b63b-cd8d86f60e18.png">
 
 
 Melakukan clone aplikasi yang disini 
