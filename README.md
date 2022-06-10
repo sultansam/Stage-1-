@@ -1,4 +1,4 @@
-# Stage-1-
+# Stage 1
 
 [Tugas DevOps1 Pree Class](week1)
 
@@ -6,7 +6,7 @@
 
 [Tugas DevOps3 Pree Class](week3)
 
-# Stage-2-
+# Stage 2
 
 [Tugas DevOps1](week1)
 
