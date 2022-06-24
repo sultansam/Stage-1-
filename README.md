@@ -8,8 +8,8 @@
 
 # Stage 2
 
-[Tugas DevOps1](week1-1)
+[Tugas DevOps1](week4)
 
-[Tugas DevOps2](week2-1)
+[Tugas DevOps2](week5)
 
-[Tugas DevOps3](week3-1)
+[Tugas DevOps3](week6)
