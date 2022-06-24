@@ -4,7 +4,7 @@ Hal yang harus di persiapkan untuk pertama kali adalah **SERVER** untuk aplikasi
 
 
 1. Saya membuat 2 buah server:
-    1. untuk Nginx
+    1. untuk Gateway (Nginx)
     2. untuk Aplikasi (FE,BE dan DATABASE)
 
 <img width="1280" alt="Screen Shot 2022-06-24 at 20 36 52" src="https://user-images.githubusercontent.com/62433171/175547176-17581f71-c578-4e16-b0c8-60caa94799cd.png">
@@ -137,7 +137,7 @@ mysql -u sultan -p
 <img width="781" alt="Screen Shot 2022-06-24 at 21 35 42" src="https://user-images.githubusercontent.com/62433171/175557965-aa199c24-ed87-4bfa-8ae9-657369684ec3.png">
 
 
-10. . install docker-compose karena kita akan menjalankan 
+10. install docker-compose karena kita akan menjalankan 
  
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -150,6 +150,174 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker compose --version
 ```
 
+11. kita lakukan konfigurasi di aplikasi backend kita ubah file env.example menjadi .env
+
+```
+mv env.exemple .env
+```
+ 
+  lakukan perubahan di dalam file config di parameter developmet kita sama kan username, password dan ip nya dengan yang sudah kita buat
+```
+nano config/config.json
+```
+ 
+12. Buat Dockerfile nya di dalam aplikasi backend
+```
+FROM node:dubnium-alpine3.11
+WORKDIR /usr/src/app
+COPY . .
+RUN npm install 
+RUN npm install sequelize-cli -g
+RUN sequelize db:migrate
+EXPOSE 5000
+CMD ["npm", "start"]
+```
+
+13. Buat docker-compose juga
+```
+version: '3.8'
+services:
+  backend:
+    container_name: backend
+    build: .
+    image: sultansam/wayshub:1.0
+    stdin_open: true
+    ports:
+    - 5544:5000
+```
+dengan berekstensikan .yml (docker-compose.yml)
+
+14. jalankan direktori backend nya dengan 
+```
+docker-compose build
+```
+```
+docker-compose up -d
+```
+
+jika sudah kita buka app backendnya di webserver dengan menggunakan ip BE dengan port :5000 , karena aplikasi backend berjalan di dalam port :5000
+
+Dan kita juga cek ke dalam database apakah sudah terimigrasi juga file. yang di database ke backend dengan cara masuk ke dalam continer database
+
+15. lalu ketika BE dan database sudah selesai kita konfigurasi kan juga untuk FRONTEND nya, kita git clone aplikasinya
+
+```
+git clone https://github.com/dumbwaysdev/wayshub-backend
+```
+
+16. lakukakan beberapa konfigurasi di dalam aplikasi FE untuk kita sambungkan dari BE ke FE 
+
+    kita ubah di dalam file nano src/confing/api.js
+    kita tambahkan di dalam base_url dengan ip/domain yang sudah kita buat
+    
+buat file dockerfile dan docker-compose 
+
+dockerfile
+```
+FROM node:dubnium-alpine3.11
+WORKDIR /usr/src/app
+COPY . .
+RUN npm install
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+docker-compose.yml
+```
+version: '3.8'
+services:
+  frontend:
+    container_name: frontend
+    build: .
+    image: sultansam/wayshub:1.0
+    stdin_open: true
+    ports:
+    - 3344:3000
+```
+
+17.jalankan direktori frontend nya dengan 
+```
+docker-compose build
+```
+```
+docker-compose up -d
+```
+Jika sudah akses ip/domain frontend nya dengan port :3000 atau yang udah kita pilih, lakukan reigerster jika sudah bisa maka aplikasi antara frontend, backend dan database sudah berhasil dilakukan. 
 
 
 
+## SET UP REVERSE PROXY DAN SSL CERTBOT
+
+KETIKA DIDALAM SERVER GATEWAY KITA SUDAH ADA NGINX NYA MAKA KITA BISA MELAKUKAN BEBERAPA KONFIGURASI BERIKUT
+
+1. Masuk ke dalam directory /etc/nginx/.  kita buat direktory terbaru kita yang akan kita isi dengan file nano reverse proxy kita
+
+```
+mkdir (nama direktori)
+```
+jika sudah kita buat file nano nya
+
+```
+nano (nama file)
+```
+lalu kita isi file nano tersebut dengan seperti di bawah ini, 
+
+
+<img width="513" alt="Screen Shot 2022-06-24 at 23 14 22" src="https://user-images.githubusercontent.com/62433171/175575543-46f7817c-3031-445c-87ad-bd0672c6c0c0.png">
+ka
+kita lihat ip be dan fe nya sama tetapi dengan port yang berbeda itu berarti menunujukkan saya membuat aplikasi be dan fe berjalan di satu server
+
+ketika sudah membuat file nano nya, kita konfigurasi juga di dalam file nano /etc/nginx/conf.nginx
+
+kita tambahkan konfigurasi di dalam file conf.nginx di parameter Virtual host configs
+```
+include /etc/nginx/wayshub/*;
+```
+
+2. kita cek pakah konfigurasi reverse proxy nya sudah benar
+
+```
+sudo nginx -t
+```
+reload dan cek status
+```
+sudo systemctl reload nginx
+```
+```
+sudo systemctl status nginx
+```
+
+
+3. karena disini saya domainnya menggunakan dari cloudflare saya buat dns untuk ip nya
+
+untuk backend 
+
+<img width="930" alt="Screen Shot 2022-06-24 at 23 31 22" src="https://user-images.githubusercontent.com/62433171/175580445-5815d695-4bab-41a2-8f86-44c1020bbb76.png">
+
+untuk frontend
+
+<img width="920" alt="Screen Shot 2022-06-24 at 23 31 59" src="https://user-images.githubusercontent.com/62433171/175581431-7ccb3451-19f5-4e7b-8b52-e96b791b5ad9.png">
+
+kita konfigurasikan juga di dalam file nano yang kita buat di server gateway tadi serperti di nomor 1
+
+4. kita install certbot untuk mendapkan cerificate ssl yang dari http:// menjadi https://
+```
+sudo snap install --classic certbot
+```
+```
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+5. kita buat directory .secret didalam server gateway lalu di isi dengan 
+
+```
+dns_cloudflare_email= " email yang didaftarkan ke cloudfalre "
+dns_cloudflare_api_key= " api key yang di ambil di dalam cloudflare"
+```
+kita konfigurasikan ini agar server gateway ke cloudflare nya tersambung
+
+6. jalankan cerbort
+```
+sudo certbot --nginx
+```
+
+
+    
