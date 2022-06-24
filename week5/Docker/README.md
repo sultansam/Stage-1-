@@ -318,6 +318,6 @@ kita konfigurasikan ini agar server gateway ke cloudflare nya tersambung
 ```
 sudo certbot --nginx
 ```
-
+💯
 
     
