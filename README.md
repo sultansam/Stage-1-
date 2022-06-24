@@ -10,6 +10,6 @@
 
 [Tugas DevOps1](week1)
 
-[Tugas DevOps1](week2)
+[Tugas DevOps2](week2)
 
-[Tugas DevOps1](week3)
+[Tugas DevOps3](week3)
