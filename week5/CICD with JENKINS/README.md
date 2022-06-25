@@ -196,6 +196,14 @@ pipeline{
 }
 ```
 
+9. Membuat Job jenkins
+
+disini kita isi nama job nya dan pilih file **PIPELINE**	
+
+<img width="1279" alt="Screen Shot 2022-06-18 at 01 41 20" src="https://user-images.githubusercontent.com/62433171/175771862-1d7ed538-b482-4383-831f-a300a64d7afc.png">
+
+
+
 
 
 
