@@ -243,13 +243,24 @@ docker-compose up -d
 ```
 Jika sudah akses ip/domain frontend nya dengan port :3000 atau yang udah kita pilih, lakukan reigerster jika sudah bisa maka aplikasi antara frontend, backend dan database sudah berhasil dilakukan. 
 
+## Tampilan frontend
+
+<img width="1280" alt="Screen Shot 2022-06-18 at 01 44 47" src="https://user-images.githubusercontent.com/62433171/175771689-cbcb04f2-c379-4054-b8ed-59f55a48ae2c.png">
+
+## Tampilan Backend
+
+<img width="1280" alt="Screen Shot 2022-06-18 at 01 45 55" src="https://user-images.githubusercontent.com/62433171/175771709-09e9a1df-49f5-4980-b15f-f1d686367953.png">
+
+## Tampilan Ketika sudah berhasil Register
+
+<img width="1280" alt="Screen Shot 2022-06-18 at 01 48 45" src="https://user-images.githubusercontent.com/62433171/175771724-2c7a9f44-516a-44b4-a175-2269f6f131c4.png">
 
 
 ## SET UP REVERSE PROXY DAN SSL CERTBOT
 
 KETIKA DIDALAM SERVER GATEWAY KITA SUDAH ADA NGINX NYA MAKA KITA BISA MELAKUKAN BEBERAPA KONFIGURASI BERIKUT
 
-1. Masuk ke dalam directory /etc/nginx/.  kita buat direktory terbaru kita yang akan kita isi dengan file nano reverse proxy kita
+1. Masuk ke dalam directory /etc/nginx/.  kita buat directory terbaru kita yang akan kita isi dengan file nano reverse proxy kita di dalam directory yang sudah kita buat.
 
 ```
 mkdir (nama direktori)
