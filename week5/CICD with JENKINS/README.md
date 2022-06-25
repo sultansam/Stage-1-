@@ -47,7 +47,7 @@ docker pull jenkis/jenkins:latest
 
 5. Membuat container untuk Jenkinsnya
 ```
-docker container create --name jenkins -p 80client_loop: send disconnect: Broken pipenkins_home jenkins/jenkins:latest
+docker container create --name jenkins -p 8080:8080 -p 50000:50000 -v jenkins:/var/jenkins_home jenkins/jenkins:latest
 ```
   kita jalankan containernya dengan perintah
 ```
@@ -66,6 +66,12 @@ Pada saat masuk akan muncul tampilan seperti ini, kita akan ambil pass nya di da
 
 ```
 /var/jenkins_home/secrets/initialAdminPassword
+```
+
+Jika tidak ada coba ini
+
+```
+sudo docker exec (nama container) cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
 <img width="655" alt="Screen Shot 2022-06-25 at 18 07 41" src="https://user-images.githubusercontent.com/62433171/175770899-503249b8-c868-46ae-9b1a-597e10490c11.png">
@@ -203,8 +209,13 @@ disini kita isi nama job nya dan pilih file **PIPELINE**
 <img width="1279" alt="Screen Shot 2022-06-18 at 01 41 20" src="https://user-images.githubusercontent.com/62433171/175771862-1d7ed538-b482-4383-831f-a300a64d7afc.png">
 
 
+<img width="627" alt="Screen Shot 2022-06-25 at 18 47 27" src="https://user-images.githubusercontent.com/62433171/175772226-6330bdde-f042-4896-b7fd-b3718df759b4.png">
 
+didalam **BUILD TRIGGERS** kita pilih Git Hook Triggers agar nanti Job yang kita buat dapat membuild sendiri tanpa kita klik build secara manual **DENGAN SYARAT** ketika kita build pertama kali harus berhasil dahulu.    
 
+didalam menu **PIPELINE** kita pilih Pipeline Script SCM dan di SCM nya kita klik GIT , isi Repository url nya dengan url repo github frontend jika untuk backend kita pilih untuk backend. Karena di dalam jenkins itu hanya dapat menjalankan 1 job 1 repo jadi ketika kita memiliki 2 repo makan kita harus membuat 2 job.
+
+<img width="627" alt="Screen Shot 2022-06-25 at 18 55 05" src="https://user-images.githubusercontent.com/62433171/175772472-45959aa1-9985-451f-a906-c80741da84d0.png">
 
 
 
