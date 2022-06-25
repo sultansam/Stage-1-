@@ -226,25 +226,46 @@ didalam **BUILD TRIGGERS** kita pilih Git Hook Triggers agar nanti Job yang kita
 
 didalam menu **PIPELINE** kita pilih Pipeline Script SCM dan di SCM nya kita klik GIT , isi Repository url nya dengan url repo github frontend jika untuk backend kita pilih untuk backend. Karena di dalam jenkins itu hanya dapat menjalankan 1 job 1 repo jadi ketika kita memiliki 2 repo makan kita harus membuat 2 job.
 
+dan di bagian credential kita tambahkan dengan credential yang sudah kita buat tadi.
+
 <img width="627" alt="Screen Shot 2022-06-25 at 18 55 05" src="https://user-images.githubusercontent.com/62433171/175772472-45959aa1-9985-451f-a906-c80741da84d0.png">
 
 
+10. Jika sudah membuat credential dan job dan berhasil dan kita proses build. Maka tampilan nya akan hijau semua seperti ini.
+
+<img width="1280" alt="Screen Shot 2022-06-18 at 01 44 22" src="https://user-images.githubusercontent.com/62433171/175775144-d2697dec-51c5-4fc8-8078-4508cb5cdc60.png">
+
+# Setting GITHUB TRIGGERS 
+
+Kita akan mengkonfigurasikan antara jenkins dan github kita dengan menggunakan webhook di dalam github, kita tadi sudah memilih atau mencentang bagian **Github hook triggers** yang seperti di gambar bawah ini.
 
 
+<img width="824" alt="Screen Shot 2022-06-25 at 20 20 03" src="https://user-images.githubusercontent.com/62433171/175775273-8133a00c-9f18-499b-b088-9198766dd6fd.png">
+
+Pergi ke repository aplikasi frontend/backend pilih setting dan klik **WEBHOOKS**
+
+<img width="1280" alt="Screen Shot 2022-06-25 at 20 33 15" src="https://user-images.githubusercontent.com/62433171/175775822-1713ce17-c182-4bdd-bb50-d609afd81d0f.png">
+
+ADD WEBHOOKS
+
+<img width="1280" alt="Screen Shot 2022-06-25 at 20 34 37" src="https://user-images.githubusercontent.com/62433171/175775870-8bbb243b-adb5-4720-bf7b-1df316082840.png">
+
+Masukkan Password Github 
+
+<img width="724" alt="Screen Shot 2022-06-25 at 20 35 04" src="https://user-images.githubusercontent.com/62433171/175775881-cb89b169-8fbb-4a69-b361-9e6633f1c32a.png">
+
+Lalu tambahkan url dengan config seperti dibawah
+```
+https://(domain-apliaksi-kita)/github-webhook/
+```
+dan ADD WEBHOOK
+
+<img width="1280" alt="Screen Shot 2022-06-25 at 20 36 38" src="https://user-images.githubusercontent.com/62433171/175775936-2da3d317-17dd-4757-8516-a2d460bf53ea.png">
 
 
+dan jika berhasil maka tampilan akan seperti ini
 
-
-
-
-
-
-
-
-
-
-
-
+<img width="1280" alt="Screen Shot 2022-06-25 at 20 39 18" src="https://user-images.githubusercontent.com/62433171/175776038-9d71cd10-f466-4ab9-a134-493214d3f479.png">
 
 
 
