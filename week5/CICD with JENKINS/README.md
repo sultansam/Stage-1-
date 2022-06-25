@@ -80,11 +80,22 @@ pilih install suggested plugins
 
 <img width="606" alt="Screen Shot 2022-06-25 at 18 09 46" src="https://user-images.githubusercontent.com/62433171/175770958-b96a9273-3a72-4cd3-b283-44aceddf226a.png">
 
+Lalu jenkins akan menginstal plugin nya 
+
 Membuat username dan password admin
 
 <img width="627" alt="Screen Shot 2022-06-25 at 18 11 16" src="https://user-images.githubusercontent.com/62433171/175771006-c1e8231d-e3ea-4cc0-9a5d-d982feacf4ec.png">
 
-Lalu jenkins akan menginstal plugin nya 
+save dan finish langsung saja karena ini udah default dari jenkinsnya
+
+<img width="745" alt="Screen Shot 2022-06-25 at 20 09 24" src="https://user-images.githubusercontent.com/62433171/175774856-956cb127-8971-4167-9d89-31e6bee4191e.png">
+
+<img width="748" alt="Screen Shot 2022-06-25 at 20 10 11" src="https://user-images.githubusercontent.com/62433171/175774880-3190a7a0-5cee-4bba-bf4a-231c45458bc6.png">
+
+**TAMPILAN PERTAMA KALI KETIKA BERHASIL**
+
+<img width="1280" alt="Screen Shot 2022-06-25 at 20 11 01" src="https://user-images.githubusercontent.com/62433171/175774906-f1fe8530-b331-4e79-bf27-e0dcf0ff1225.png">
+
 
 7. Credential di dalam menu manage credential
 
