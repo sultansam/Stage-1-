@@ -37,7 +37,7 @@ dan lakukan yang sama terhadap semua server yang kita kirim ssh nya agar saling 
 
 peintah mengirim ssh
 ```
-scp -r .ssh app@103.55.37.194:/home/app
+scp -r .ssh app@103.55.37.194:/home/sultan
 ```
 
 jika sudah copy id_rsa ke dalam lokal dan gunakan namafile.pem lalu lakukan periintah di bawah agar file nya hanya bisa di baca.
