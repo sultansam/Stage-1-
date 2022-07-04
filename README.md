@@ -13,3 +13,5 @@
 [Tugas DevOps2](week5)
 
 [Tugas DevOps3](week6)
+
+[Final Task](final-task)
