@@ -70,12 +70,112 @@ lalu jika sudah kita cek koneksi dengan menggunakan
 ```
 ansible all -m ping
 ```
+<img width="460" alt="Screen Shot 2022-07-06 at 14 27 24" src="https://user-images.githubusercontent.com/62433171/177494018-3bb2d204-541f-474b-9c19-faee2329a167.png">
+
+## Nginx
+
+ketika sudah berhasil tersambung, lalu kita install nginx ke semua server menggunakan ansible.
+
+untuk mengecek apakah file .yml kita sudah benar atau belum, bisa di cek dengan.
+```
+ansible-playbook --syntax-check [nama file .yml]
+```
+
+```
+- hosts: app
+  become: yes
+  gather_facts: yes
+  tasks:
+       - name: install nginx
+         apt:
+            name:
+              - nginx
+            state: latest
+```
+<img width="915" alt="Screen Shot 2022-07-06 at 14 31 54" src="https://user-images.githubusercontent.com/62433171/177494876-48212819-3f80-4f44-a488-061f7a52bd7c.png">
+
+dan jika sudah berhasil, maka di dalam server kita sudah ada file nginx nya dan ketika di akses ip dengan port nginx(80) akan muncul seperti di bawah ini.
+<img width="888" alt="Screen Shot 2022-07-06 at 14 37 45" src="https://user-images.githubusercontent.com/62433171/177496058-ce1e87be-e510-4672-a89a-f182c22034c7.png">
+
+<img width="1280" alt="Screen Shot 2022-07-06 at 14 40 49" src="https://user-images.githubusercontent.com/62433171/177496610-877d759a-0b73-466c-836a-5994af7a3a5a.png">
+
+## Docker
+
+install docker: kita harus persiapkan file untuk ansible docker yang berkstensi .yml di dalam file ansible, agar kita bisa proses ansible-playbook nya.
+
+```
+- hosts: app
+  become: yes
+  gather_facts: yes
+  tasks:
+       - name: update
+         apt:
+          update_cache: yes
+
+       - name: upgrade
+         apt:
+          upgrade: dist
+
+       - name: docker dependencies
+         apt:
+          name: "{{ packages }}"
+          state: present
+          update_cache: yes
+         vars:
+          packages:
+           - apt-transport-https
+           - ca-certificates
+           - curl
+           - software-properties-common
+           - gnupg-agent
+
+       - name: add docker gpg key
+         apt_key:
+            url: https://download.docker.com/linux/ubuntu/gpg
+            state: present
+
+       - name: add repo docker
+         apt_repository:
+           repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+           state: present
+
+       - name: install docker
+         apt:
+           name: "{{ packages }}"
+           state: present
+           update_cache: yes
+         vars:
+          packages:
+           - docker-ce
+           - docker-ce-cli 
+           - containerd.io
+
+       - name: docker-compose
+         get_url:
+             url : https://github.com/docker/compose/releases/download/v2.6.0/docker-compose-linux-x86_64
+             dest: ~/docker-compose
+             mode: '+x'
+
+       - name: Check docker-compose exists
+         stat: path=~/docker-compose
+         register: docker_compose
+
+       - name: Move docker-compose to /usr/local/bin/docker-compose
+         command: mv ~/docker-compose /usr/local/bin/docker-compose
+         when: docker_compose.stat.exists
+
+       - name: Move Sudo
+         shell: sudo usermod -aG docker sultan
+```
+
+<img width="1039" alt="Screen Shot 2022-07-06 at 14 57 23" src="https://user-images.githubusercontent.com/62433171/177499907-68efa2a2-c7fb-4ab5-a6bd-40d488d588ee.png">
 
 
+dan jika berhasil maka akan menampilkan hal-hal seperti ini.
 
+<img width="501" alt="Screen Shot 2022-07-06 at 14 56 17" src="https://user-images.githubusercontent.com/62433171/177499699-a8f20909-2e5a-476e-9d1a-4a4aa732c1e5.png">
 
-
-
+<img width="336" alt="Screen Shot 2022-07-06 at 14 57 02" src="https://user-images.githubusercontent.com/62433171/177499837-5ea6bbbe-8bab-447b-aa36-c60b56f20246.png">
 
 
 
