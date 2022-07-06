@@ -321,7 +321,7 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
 ```
 dns_cloudflare_email= " email yang didaftarkan ke cloudfalre "
-dns_cloudflare_api_key= " api key yang di ambil di dalam cloudflare"
+dns_cloudflare_api_key= " api key yang di ambil di dalam cloudflare (global api key)"
 ```
 kita konfigurasikan ini agar server gateway ke cloudflare nya tersambung
 
