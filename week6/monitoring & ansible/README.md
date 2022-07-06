@@ -177,6 +177,65 @@ dan jika berhasil maka akan menampilkan hal-hal seperti ini.
 
 <img width="336" alt="Screen Shot 2022-07-06 at 14 57 02" src="https://user-images.githubusercontent.com/62433171/177499837-5ea6bbbe-8bab-447b-aa36-c60b56f20246.png">
 
+jika sudah ada nginx dan docker kita install untuk monitoringnya.
+
+## Monitoring (node, prometheus, grafana)
+
+buat file ansible node exporter
+
+docker-compose-node_exporter.yml
+
+```
+version: '3'
+
+services:
+  node_exporter:
+    image: prom/node-exporter:latest
+    container_name: node_exporter
+    ports:
+      - 9100:9100
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:roca
+```
+
+
+node-exporter.yml 
+
+```
+- hosts: app
+   become: yes
+   gather_facts: yes
+   tasks:
+
+     - name: copying docker compose file
+       copy:
+        src: docker-compose-node_exporter.yml
+        dest: /home/sultan/docker-files/
+
+     - name: run docker compose
+       shell: docker-compose -f docker-files/docker-compose-node_exporter.yml up -d
+```
+
+<img width="911" alt="Screen Shot 2022-07-06 at 15 14 53" src="https://user-images.githubusercontent.com/62433171/177503335-98b69618-f2a9-4bd7-9745-256749e43126.png">
+
+
+<img width="1280" alt="Screen Shot 2022-07-06 at 15 15 03" src="https://user-images.githubusercontent.com/62433171/177503374-52bc1e24-c136-4e19-9db8-2f833c77f2b9.png">
+
+
+
+
+
+
+
+
 
 
 
