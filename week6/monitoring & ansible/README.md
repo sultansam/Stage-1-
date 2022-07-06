@@ -95,6 +95,8 @@ ansible-playbook --syntax-check [nama file .yml]
 <img width="915" alt="Screen Shot 2022-07-06 at 14 31 54" src="https://user-images.githubusercontent.com/62433171/177494876-48212819-3f80-4f44-a488-061f7a52bd7c.png">
 
 dan jika sudah berhasil, maka di dalam server kita sudah ada file nginx nya dan ketika di akses ip dengan port nginx(80) akan muncul seperti di bawah ini.
+
+
 <img width="888" alt="Screen Shot 2022-07-06 at 14 37 45" src="https://user-images.githubusercontent.com/62433171/177496058-ce1e87be-e510-4672-a89a-f182c22034c7.png">
 
 <img width="1280" alt="Screen Shot 2022-07-06 at 14 40 49" src="https://user-images.githubusercontent.com/62433171/177496610-877d759a-0b73-466c-836a-5994af7a3a5a.png">
@@ -228,6 +230,35 @@ node-exporter.yml
 
 
 <img width="1280" alt="Screen Shot 2022-07-06 at 15 15 03" src="https://user-images.githubusercontent.com/62433171/177503374-52bc1e24-c136-4e19-9db8-2f833c77f2b9.png">
+
+
+Lalu di dalam server yang menandakan node exporter kita sudah berhasil dan berjalan kita bisa cek images dan container nya.
+
+<img width="1118" alt="Screen Shot 2022-07-06 at 15 17 01" src="https://user-images.githubusercontent.com/62433171/177503804-f416c201-27cc-48fe-bce8-17824993f5e8.png">
+
+
+Install Prometheus dan grafana
+
+prometheus.yml
+
+```
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus-metrics"
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['103.189.234.27:9090']
+  - job_name: "node_exporter_metrics"
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['103.189.234.27:9100']
+```
+      
+      
+
+
 
 
 
